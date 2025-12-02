@@ -6,3 +6,4 @@ export { type User } from "./model";
 export { AuthFormLayout } from "./ui/AuthFormLayout/AuthFormLayout";
 export { Avatar } from "./ui/Avatar/Avatar";
 export { StreakBadge } from "./ui/StreakBadge/StreakBadge";
+export { PointsBadge } from "./ui/PointsBadge/PointsBadge";

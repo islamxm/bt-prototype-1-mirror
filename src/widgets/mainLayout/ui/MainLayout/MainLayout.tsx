@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import { Box, Stack } from "@mui/material"
 import { FC, PropsWithChildren, ReactNode } from "react"
 
 type Props = PropsWithChildren<{
@@ -12,12 +12,14 @@ export const MainLayout:FC<Props> = ({
   footer
 }) => {
   return (
-    <Box>
+    <Stack
+      sx={{height: "100%"}}
+      >
       {header && header}
       {children && (
-        <main>{children}</main>
+        <Box component={'main'} sx={{flex: "1 0 auto"}}>{children}</Box>
       )}
       {footer && footer}
-    </Box>
+    </Stack>
   )
 }

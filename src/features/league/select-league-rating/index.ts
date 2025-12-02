@@ -1,0 +1,1 @@
+export { LeagueRatingTabs } from "./ui";
