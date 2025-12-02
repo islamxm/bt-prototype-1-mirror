@@ -2,8 +2,9 @@ import { Logo } from "@/shared/ui/Logo";
 import { Paper, Link as MuiLink, Stack } from "@mui/material";
 import Link from "next/link";
 import { UserAvatar } from "@/features/user/user-avatar";
+import { getHomePage, routesMap } from "@/shared/model";
 
-const routes = ["Courses", "Points", "Rating"];
+const routes = Object.entries(routesMap).map(route => route[1]).filter(route => route.path !== getHomePage())
 
 export const Navbar = () => {
 
@@ -23,9 +24,9 @@ export const Navbar = () => {
         <Logo sx={{ ml: "2.4rem" }} />
         {routes.map((route) => (
           <MuiLink
-            key={route}
+            key={route.id}
             component={Link}
-            href={route}
+            href={route.path}
             sx={(theme) => ({
               padding: "0.6rem 2.5rem",
               fontWeight: 600,
@@ -36,7 +37,7 @@ export const Navbar = () => {
               },
             })}
           >
-            {route}
+            {route.label}
           </MuiLink>
         ))}
         <UserAvatar/>
