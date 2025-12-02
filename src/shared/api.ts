@@ -1,8 +1,8 @@
 import {
   BaseQueryFn,
-  createApi,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { getSession, signOut } from "next-auth/react";
 import { Mutex } from "async-mutex";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -54,5 +54,5 @@ const baseQueryWithReauth: BaseQueryFn = async (args, api, extraOptions) => {
 export const api = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReauth,
-  endpoints: () => ({}),
+  endpoints: () => ({})
 });

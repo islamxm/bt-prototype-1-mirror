@@ -1,25 +1,26 @@
-import { Box, Stack } from "@mui/material"
-import { FC, PropsWithChildren, ReactNode } from "react"
+"use client";
+import { Box, Stack } from "@mui/material";
+import { usePathname } from "next/navigation";
+import { FC, PropsWithChildren, ReactNode } from "react";
 
 type Props = PropsWithChildren<{
   header?: ReactNode;
   footer?: ReactNode;
-}>
+}>;
 
-export const MainLayout:FC<Props> = ({
-  children,
-  header,
-  footer
-}) => {
+export const MainLayout: FC<Props> = ({ children, header, footer }) => {
+  const pathname = usePathname()
+  const isAuthPage = pathname === '/auth'
+
   return (
-    <Stack
-      sx={{height: "100%"}}
-      >
-      {header && header}
+    <Stack sx={{ height: "100%" }}>
+      {(header && !isAuthPage) && header}
       {children && (
-        <Box component={'main'} sx={{flex: "1 0 auto"}}>{children}</Box>
+        <Box component={"main"} sx={{ flex: "1 0 auto", }}>
+          {children}
+        </Box>
       )}
-      {footer && footer}
+      {(footer && !isAuthPage) && footer}
     </Stack>
-  )
-}
+  );
+};

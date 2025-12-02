@@ -1,5 +1,5 @@
 "use client";
-import { createTheme } from "@mui/material";
+import { createTheme, Shadows } from "@mui/material";
 import { AppRouterCacheProviderProps } from "@mui/material-nextjs/v13-appRouter";
 
 declare module "@mui/material/styles" {
@@ -79,31 +79,8 @@ export const themeConfig = createTheme({
   },
   shadows: [
     "none",
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-    customShadow,
-  ],
+    ...new Array(23).fill(customShadow)
+  ] as Shadows,
   components: {
     MuiButton: {
       styleOverrides: {

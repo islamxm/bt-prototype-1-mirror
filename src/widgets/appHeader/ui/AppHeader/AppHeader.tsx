@@ -1,13 +1,14 @@
 "use client";
 import { Box } from "@mui/material";
 import { Navbar } from "../Navbar/Navbar";
-import { StreakBadge } from "@/entities/user";
-import { LeagueBadge } from "@/entities/league";
+import { LeaguePanel } from "@/entities/league";
 import classes from "./classes.module.scss";
-import { useAuth } from "@/shared/lib/useAuth";
+import { StreakInfo } from "@/features/user/streak-info";
+import { useSelector } from "@/shared/lib";
 
 export const AppHeader = () => {
-  const isAuth = useAuth();
+  const {isAuth} = useSelector(s => s.user)
+
   return (
     <Box
       sx={{
@@ -27,10 +28,10 @@ export const AppHeader = () => {
       {isAuth && (
         <>
           <div className={classes.left}>
-            <StreakBadge />
+            <StreakInfo/>
           </div>
           <div className={classes.right}>
-            <LeagueBadge />
+            {/* <LeaguePanel /> */}
           </div>
         </>
       )}

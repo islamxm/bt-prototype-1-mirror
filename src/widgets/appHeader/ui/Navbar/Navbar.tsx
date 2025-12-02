@@ -3,11 +3,13 @@ import { Paper, Link as MuiLink, Stack } from "@mui/material";
 import Link from "next/link";
 import { UserAvatar } from "@/features/user/user-avatar";
 import { getHomePage, routesMap } from "@/shared/model";
+import { motion } from "motion/react";
 
-const routes = Object.entries(routesMap).map(route => route[1]).filter(route => route.path !== getHomePage())
+const routes = Object.entries(routesMap)
+  .map((route) => route[1])
+  .filter((route) => route.path !== getHomePage());
 
 export const Navbar = () => {
-
   return (
     <Paper
       sx={(theme) => ({
@@ -19,28 +21,31 @@ export const Navbar = () => {
         alignItems: "center",
         display: "flex",
       })}
+      component={motion.div}
+      layout
     >
-      <Stack direction={"row"} alignItems={"center"} gap={"3rem"}>
+      <Stack direction={"row"} alignItems={"center"} gap={"3rem"} component={motion.div} layout>
         <Logo sx={{ ml: "2.4rem" }} />
         {routes.map((route) => (
-          <MuiLink
-            key={route.id}
-            component={Link}
-            href={route.path}
-            sx={(theme) => ({
-              padding: "0.6rem 2.5rem",
-              fontWeight: 600,
-              fontSize: "1.8rem",
-              color: theme.palette.primary.dark,
-              "&:hover": {
-                color: theme.palette.primary.light,
-              },
-            })}
-          >
-            {route.label}
-          </MuiLink>
+          <motion.div key={route.id} layout>
+            <MuiLink
+              component={Link}
+              href={route.path}
+              sx={(theme) => ({
+                padding: "0.6rem 2.5rem",
+                fontWeight: 600,
+                fontSize: "1.8rem",
+                color: theme.palette.primary.dark,
+                "&:hover": {
+                  color: theme.palette.primary.light,
+                },
+              })}
+            >
+              {route.label}
+            </MuiLink>
+          </motion.div>
         ))}
-        <UserAvatar/>
+        <UserAvatar />
       </Stack>
     </Paper>
   );

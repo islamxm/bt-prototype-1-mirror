@@ -9,7 +9,7 @@ export const StoreProvider:FC<Props> = ({
   children,
   preloadedState
 }) => {
-
+  
   return (
     <Provider store={preloadedState}>
       {children}
