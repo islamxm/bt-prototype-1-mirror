@@ -50,8 +50,8 @@ export const LeagueRatingTabs:FC<Props> = ({
         },
       })}
     >
-      <Tab label="Local rating" value={"login"} />
-      <Tab label="Global rating" value={"register"} />
+      <Tab label="Local rating" value={"local"} />
+      <Tab label="Global rating" value={"global"} />
     </Tabs>
   );
 };

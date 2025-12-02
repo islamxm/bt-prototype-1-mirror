@@ -1,4 +1,4 @@
-import { AuthCredentials } from "./model";
+import { AuthCredentials, StreakStatus, UserStreak } from "./model";
 
 export function getUserDeviceInfo(): Omit<
   AuthCredentials["deviceInfo"],
@@ -21,3 +21,23 @@ export function getUserDeviceInfo(): Omit<
     },
   };
 }
+
+export const getStreakStatus = (data: {
+  day: number;
+  streak: UserStreak;
+}) => {
+  const {day, streak} = data
+  let status: StreakStatus = "disabled";
+
+  if(day <= streak.currentStreak) {
+    status = 'active'
+  }
+  if(day === streak.currentStreak + 1 && !streak.todayActive) {
+    status = 'current'
+  }
+  if(day > streak.currentStreak + 1) {
+    status = 'disabled'
+  }
+
+  return status;
+};

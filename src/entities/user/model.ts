@@ -4,9 +4,10 @@ import {
   AuthCredentialsSchema,
   AuthSuccessGoogleResponseSchema,
   AuthSuccessResponseSchema,
-  UserHomeDataSuccessResponse,
+  UserHomeDataSuccessResponseSchema,
   UserSchema,
 } from "./contracts";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type AuthType = "login" | "register" | "verify";
 export type AuthCredentials = z.infer<typeof AuthCredentialsSchema>;
@@ -21,10 +22,27 @@ export type AuthGoogleResponse = Response<
 export type User = z.infer<typeof UserSchema>;
 
 export type UserStreak = z.infer<
-  typeof UserHomeDataSuccessResponse.shape.userStreak
+  typeof UserHomeDataSuccessResponseSchema.shape.userStreak
 >;
 
 export type UserHomeDataResponse = Response<
-  z.infer<typeof UserHomeDataSuccessResponse>,
+  z.infer<typeof UserHomeDataSuccessResponseSchema>,
   DefaultResponseErrorData
 >;
+
+export type StreakStatus = "disabled" | "current" | "active"
+
+type UserSliceInitialType = {
+  isAuth: boolean
+}
+const userSliceInitialState: UserSliceInitialType = {
+  isAuth: false
+}
+
+export const userSlice = createSlice({
+  initialState: userSliceInitialState,
+  name: "user",
+  reducers: {
+    updateAuthStatus: (state, {payload}: PayloadAction<boolean>) => {state.isAuth = payload}
+  }
+})

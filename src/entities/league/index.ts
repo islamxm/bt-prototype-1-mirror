@@ -1,2 +1,2 @@
-export { LeagueBadge } from "./ui/LeagueBadge/LeagueBadge";
+export { LeaguePanel } from "./ui/LeaguePanel/LeaguePanel";
 export { type Rating } from "./model";

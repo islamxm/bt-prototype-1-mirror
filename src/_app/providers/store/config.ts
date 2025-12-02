@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
 import {api} from '@/shared/api'
+import { userSlice } from "@/entities/user"
 
 export const createStore = (preloadedState?: unknown) => {
   return configureStore({
     reducer: {
       [api.reducerPath]: api.reducer,
+      [userSlice.reducerPath]: userSlice.reducer
     },
     preloadedState,
     middleware: getDefaultMiddleware => getDefaultMiddleware({

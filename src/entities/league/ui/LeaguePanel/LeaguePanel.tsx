@@ -1,7 +1,7 @@
 import { Paper, Typography } from "@mui/material";
 import { BronzeIcon } from "../../icons";
 
-export const LeagueBadge = () => {
+export const LeaguePanel = () => {
   return (
     <Paper
       sx={(theme) => ({

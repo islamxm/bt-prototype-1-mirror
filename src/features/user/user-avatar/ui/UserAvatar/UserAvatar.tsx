@@ -1,20 +1,20 @@
 import { Avatar, User } from "@/entities/user";
-import { useSession } from "next-auth/react";
+import { motion } from "motion/react";
+import { useSelector } from "@/shared/lib";
 
 export const UserAvatar = () => {
-  const {status, data} = useSession()
-  const isAuth = status === 'authenticated';
-  // в будущем для получения данных надо сделать отдельный запрос или получить из редакс кэша
+  const {isAuth} = useSelector(s => s.user)
 
-  if(!isAuth) {
-    return null
+  if (!isAuth) {
+    return null;
   }
 
   return (
-    <Avatar
-      size="4.8rem"
-      avatarUrl={data.user?.image as User['avatarUrl']}
-      />
-  )
-
-}
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+    >
+      <Avatar size="4.8rem"/>
+    </motion.div>
+  );
+};

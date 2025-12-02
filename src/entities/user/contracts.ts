@@ -40,7 +40,7 @@ export const UserSchema = z.object({
   username: z.string(),
 });
 
-export const UserHomeDataSuccessResponse = z.object({
+export const UserHomeDataSuccessResponseSchema = z.object({
   continueLearning: z.array(
     z.object({
       courseIcon: z.string(),
