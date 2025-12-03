@@ -1,7 +1,16 @@
 "use client";
 import { Container } from "@/shared/ui/Container";
 import { SectionHead } from "@/shared/ui/SectionHead";
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  BoxProps,
+  Button,
+  IconButton,
+  Stack,
+  SxProps,
+  Theme,
+  Typography,
+} from "@mui/material";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -10,21 +19,24 @@ import img from "./assets/slide-img-1.png";
 import classes from "./classes.module.scss";
 import { ArrowLeftIcon, ArrowRightIcon } from "@/shared/ui/icons";
 import { cn } from "@/shared/lib/cn";
+import { FC } from "react";
 
+type Props = {
+  head?: {
+    title?: string;
+    subtitle?: string;
+  };
+  bgcolor?: BoxProps["bgcolor"]
+};
 
-export const NewsSection = () => {
+export const PromoSection: FC<Props> = ({ bgcolor, head }) => {
   return (
     <Box
       className={classes.wrapper}
-      sx={(theme) => ({
-        backgroundColor: theme.palette.common.white,
-      })}
+      bgcolor={bgcolor ? bgcolor : (theme) => theme.palette.common.white}
     >
       <Container>
-        <SectionHead
-          title="platform News"
-          subtitle="Lorem ipsum dolor sit amet consectetur. Facilisi sollicitudin tempus sit ac. Tellus ac cras in metus curabitur aliquet. "
-        />
+        {head && <SectionHead title={head.title} subtitle={head.subtitle} />}
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
@@ -154,7 +166,7 @@ export const NewsSection = () => {
               color: theme.palette.primary.main,
             })}
           >
-            <ArrowLeftIcon sx={{width: "3.2rem", height: "3.2rem"}}/>
+            <ArrowLeftIcon sx={{ width: "3.2rem", height: "3.2rem" }} />
           </IconButton>
           <IconButton
             className={cn([classes.slider_next_btn, classes.slider_btn])}
@@ -163,7 +175,7 @@ export const NewsSection = () => {
               color: theme.palette.primary.main,
             })}
           >
-            <ArrowRightIcon sx={{width: "3.2rem", height: "3.2rem"}}/>
+            <ArrowRightIcon sx={{ width: "3.2rem", height: "3.2rem" }} />
           </IconButton>
           <div className={classes.slider_next_btn}></div>
         </Swiper>

@@ -1,3 +1,3 @@
-import { useSelector as s } from "react-redux";
+import { useSelector as s, TypedUseSelectorHook } from "react-redux";
 
-export const useSelector = s.withTypes<StoreType>();
+export const useSelector:TypedUseSelectorHook<StoreType> = s
