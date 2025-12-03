@@ -47,7 +47,7 @@ export const CourseCard: FC<Course> = ({ name, description }) => {
             sx={{
               overflow: "hidden",
               display: "-webkit-box",
-              WebkitLineClamp: 2, // Здесь задается максимальное количество строк
+              WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
             }}
             variant="body1"

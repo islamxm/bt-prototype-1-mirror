@@ -1,7 +1,7 @@
 import {
   BaseQueryFn,
   fetchBaseQuery,
-} from "@reduxjs/toolkit/query";
+} from "@reduxjs/toolkit/query/react";
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { getSession, signOut } from "next-auth/react";
 import { Mutex } from "async-mutex";

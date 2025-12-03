@@ -5,3 +5,8 @@ export const CategorySchema = z.object({
   id: z.number(),
   name: z.string(),
 });
+
+
+export const GetCategoriesSuccesssResponseSchema = z.object({
+  categories: z.array(CategorySchema)
+})

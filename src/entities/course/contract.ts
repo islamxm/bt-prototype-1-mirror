@@ -18,3 +18,8 @@ export const CourseSchema = z.object({
   // UnitSchema or Omitted UnitSchema
   units: z.unknown().optional(),
 });
+
+export const GetCoursesByCategoryIdSuccessResponseSchema = z.object({
+  courses: z.array(CourseSchema),
+  cursor: z.string().optional()
+})

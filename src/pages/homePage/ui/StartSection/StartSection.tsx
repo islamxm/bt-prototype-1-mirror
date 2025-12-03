@@ -6,7 +6,7 @@ import img from "./assets/promo-img.png";
 import Image from "next/image";
 import { ArrowRightIcon } from "@/shared/ui/icons";
 
-export const PromoSection = () => {
+export const StartSection = () => {
   return (
     <Box
       sx={(theme) => ({

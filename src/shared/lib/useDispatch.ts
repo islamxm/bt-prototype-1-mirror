@@ -1,3 +1,3 @@
 import { useDispatch as d } from "react-redux";
 
-export const useDispatch = d.withTypes<DispatchType>();
+export const useDispatch: () => DispatchType = d;

@@ -2,12 +2,12 @@
 import { Stack } from "@mui/material";
 import { HeroSection } from "../HeroSection/HeroSection";
 import { CategoriesSection } from "../CategoriesSection/CategoriesSection";
-import { NewsSection } from "../NewsSection/NewsSection";
 import { CoursesSection } from "../CoursesSection/CoursesSection";
-import { PromoSection } from "../PromoSection/PromoSection";
+import { StartSection } from "../StartSection/StartSection";
 import { FC } from "react";
 import { HomePagePublicDataResponse } from "../../model";
 import { PageEnterAnimationLayout } from "@/widgets/pageEnterAnimationLayout";
+import { PromoSection } from "@/widgets/promoSection";
 
 type Props = {
   data: HomePagePublicDataResponse["success"];
@@ -19,9 +19,9 @@ export const HomePage: FC<Props> = ({ data }) => {
       <Stack>
         <HeroSection />
         <CategoriesSection data={data.categories} />
-        <NewsSection />
+        <PromoSection head={{title: "platform News", subtitle: "Lorem ipsum dolor sit amet consectetur. Facilisi sollicitudin tempus sit ac. Tellus ac cras in metus curabitur aliquet. "}} />
         <CoursesSection data={data.popularCourses} />
-        <PromoSection />
+        <StartSection />
       </Stack>
     </PageEnterAnimationLayout>
   );
