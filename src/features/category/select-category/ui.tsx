@@ -22,7 +22,7 @@ export const CategoryTabs = () => {
       <Tabs
         variant="scrollable"
         scrollButtons={false}
-        value={Number(params?.category)}
+        value={!isNaN(Number(params?.category)) && Number(params?.category)}
         onChange={handleChange}
         sx={{
           "& .MuiTabs-indicator": {
@@ -40,7 +40,6 @@ export const CategoryTabs = () => {
               fontWeight: 600,
               color: theme.palette.text.disabled,
               borderRadius: "2rem 2rem 0 0",
-
               "& .Mui-selected": {
                 color: theme.palette.primary.main,
               },

@@ -4,12 +4,15 @@ import Link from "next/link";
 import { UserAvatar } from "@/features/user/user-avatar";
 import { getHomePage, routesMap } from "@/shared/model";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+
 
 const routes = Object.entries(routesMap)
   .map((route) => route[1])
   .filter((route) => route.path !== getHomePage());
 
 export const Navbar = () => {
+
   return (
     <Paper
       sx={(theme) => ({
@@ -23,6 +26,8 @@ export const Navbar = () => {
       })}
       component={motion.div}
       layout
+      initial={{scale: 0, opacity: 0}}
+      animate={{scale: 1, opacity: 1}}
     >
       <Stack direction={"row"} alignItems={"center"} gap={"3rem"} component={motion.div} layout>
         <Logo sx={{ ml: "2.4rem" }} />
