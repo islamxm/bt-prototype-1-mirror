@@ -1,0 +1,1 @@
+export { CompetitionWS } from "./lib";
