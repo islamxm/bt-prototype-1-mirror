@@ -3,6 +3,7 @@ export type Route = {
   path: string;
   label: string
 }
+export type WsState = "CONNECTING" | "OPEN" | "CLOSING" | "CLOSED";
 
 export const getHomePage = () => "/home";
 export const getCoursesPage = () => "/courses";
