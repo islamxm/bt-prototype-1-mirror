@@ -13,7 +13,7 @@ type Props = {
 export const CategoriesSection:FC<Props> = ({data}) => {
 
   return (
-    <Box py={"3.5rem"} sx={theme => ({backgroundColor: theme.palette.common.white})}>
+    <Box sx={theme => ({py: "3.5rem", backgroundColor: theme.palette.background.default})}>
       <Container>
         <SectionHead
           title={"explore courses categories"}
@@ -25,9 +25,6 @@ export const CategoriesSection:FC<Props> = ({data}) => {
           }
         />
         <Stack direction={"row"} gap={"2rem"}>
-          {/* <CategoryCard/>
-          <CategoryCard/>
-          <CategoryCard/> */}
           {
             data.map(category => (
               <CategoryCard key={category.id} {...category}/>

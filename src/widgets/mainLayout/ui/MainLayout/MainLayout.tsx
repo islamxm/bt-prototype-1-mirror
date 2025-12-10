@@ -13,7 +13,7 @@ export const MainLayout: FC<Props> = ({ children, header, footer }) => {
   const isAuthPage = pathname === '/auth'
 
   return (
-    <Stack sx={{ height: "100%" }}>
+    <Stack sx={theme => ({ height: "100%", backgroundColor: theme.palette.gold.light })}>
       {(header && !isAuthPage) && header}
       {children && (
         <Box component={"main"} sx={{ flex: "1 0 auto", }}>

@@ -28,7 +28,7 @@ export const StreakDays: FC<Props> = ({ streak }) => {
       initial="hidden"
       animate="visible"
     >
-      {new Array(DAYS).fill(true).map((_, index) => (
+      {new Array(DAYS + 1).fill(true).map((_, index) => (
         <motion.div
           variants={{
             hidden: { scale: 0, opacity: 0 },

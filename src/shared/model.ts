@@ -1,8 +1,8 @@
 export type Route = {
   id: number;
   path: string;
-  label: string
-}
+  label: string;
+};
 export type WsState = "CONNECTING" | "OPEN" | "CLOSING" | "CLOSED";
 
 export const getHomePage = () => "/home";
@@ -18,3 +18,21 @@ export const routesMap = {
 };
 
 export const routes = Object.entries(routesMap).map((route) => route[1]);
+
+export type DeviceInfo = {
+  web: {
+    meta: {
+      locale: string;
+      model: string;
+      timezone: string;
+      version: string;
+    };
+    userAgent: string;
+  };
+};
+
+export const languagesMap = {
+  ["tk"]: { label: "Türkmençe" },
+  ["ru"]: { label: "Русский" }
+};
+export type Language = keyof typeof languagesMap;

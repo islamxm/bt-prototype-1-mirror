@@ -1,3 +1,4 @@
+"use client"
 import { CategoryTabs } from "@/features/category/select-category";
 import { Container } from "@/shared/ui";
 import { PageEnterAnimationLayout } from "@/widgets/pageEnterAnimationLayout";
@@ -8,7 +9,7 @@ import { PropsWithChildren } from "react";
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <PageEnterAnimationLayout>
-      <Stack gap={"4.4rem"} sx={{ pt: "13.8rem" }}>
+      <Stack gap={"4.4rem"} sx={theme => ({ pt: "13.8rem", backgroundColor: theme.palette.gold.light })}>
         <PromoSection bgcolor={"unset"} />
         <Container>
           <CategoryTabs />

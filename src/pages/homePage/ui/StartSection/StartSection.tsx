@@ -11,7 +11,7 @@ export const StartSection = () => {
     <Box
       sx={(theme) => ({
         py: "3.5rem",
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.background.default,
       })}
       className={classes.wrapper}
     >
@@ -29,7 +29,12 @@ export const StartSection = () => {
               gap={"2.4rem"}
               className={classes.content_in}
             >
-              <Typography sx={{fontSize: "5.4rem", textTransform: "uppercase"}} variant={"h2"}>Start <br/> learning now</Typography>
+              <Typography
+                sx={{ fontSize: "5.4rem", textTransform: "uppercase" }}
+                variant={"h2"}
+              >
+                Start <br /> learning now
+              </Typography>
               <Typography variant={"subtitle1"}>
                 Lorem ipsum felis pulvinar dignissim faucibus penatibus donec
                 ultrices ligula. penatibus donec ultrices ligula.

@@ -13,7 +13,7 @@ export const PointsBadge = () => {
       })}
     >
       <Stack direction={"row"} gap={"1rem"} alignItems={"center"}>
-        <PointFilledIcon sx={{color: "#FFD24E", fontSize: "2rem"}}/>
+        <PointFilledIcon sx={theme => ({color: theme.palette.gold, fontSize: "2rem"})}/>
         234
       </Stack>
     </Paper>

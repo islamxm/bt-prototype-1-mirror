@@ -13,7 +13,10 @@ export class CompetitionWS {
   private handlers: Map<CnServerEventName, (data: any) => void> = new Map();
   private pendingMessages: Array<string> = [];
 
-  constructor(private url: string) {}
+  constructor(
+    private url: string,
+    private token: string
+  ) {}
 
   private onOpenCb?: () => void;
   private onCloseCb?: () => void;
@@ -33,8 +36,9 @@ export class CompetitionWS {
     if (this._wsState() === "OPEN") {
       return;
     }
-    this.ws = new WebSocket(this.url);
+    this.ws = new WebSocket(this.url + `/?token=${this.token}`);
     this.ws.onopen = () => {
+      console.log("OPENED")
       //логика при установлении соединения
       while (this.pendingMessages.length > 0) {
         const message = this.pendingMessages.shift();

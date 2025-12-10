@@ -30,7 +30,7 @@ export type UserHomeDataResponse = Response<
   DefaultResponseErrorData
 >;
 
-export type StreakStatus = "disabled" | "current" | "active"
+export type StreakStatus = "disabled" | "current" | "active" | "final" | "complete"
 
 type UserSliceInitialType = {
   isAuth: boolean
