@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { StreakStatus } from "../../model";
-import { StreakIcon, StreakOutlinedIcon } from "@/shared/ui/icons";
+import { CrownIcon, StreakIcon, StreakOutlinedIcon } from "@/shared/ui/icons";
 import { SxProps } from "@mui/material";
 
 type Props = {
@@ -29,6 +29,18 @@ export const StreakDay: FC<Props> = ({ status }) => {
       return (
         <StreakIcon
           sx={(theme) => ({ ...baseStyle, color: theme.palette.grey[300] })}
+        />
+      );
+    case "final":
+      return (
+        <CrownIcon
+          sx={(theme) => ({ ...baseStyle, color: theme.palette.grey[300] })}
+        />
+      );
+    case "complete":
+      return (
+        <CrownIcon
+          sx={(theme) => ({ ...baseStyle, color: theme.palette.gold })}
         />
       );
     default:

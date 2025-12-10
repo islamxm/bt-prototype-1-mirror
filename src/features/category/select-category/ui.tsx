@@ -24,14 +24,21 @@ export const CategoryTabs = () => {
         scrollButtons={false}
         value={!isNaN(Number(params?.category)) && Number(params?.category)}
         onChange={handleChange}
-        sx={{
+        sx={theme => ({
           "& .MuiTabs-indicator": {
-            height: ".3rem",
+            // height: ".3rem",
+            height: "100%",
+            backgroundColor: theme.palette.background.default,
+            borderRadius: "1.5rem 1.5rem 0 0"
           },
           "& .MuiTabs-list": {
-            gap: "2.4rem",
+            // gap: "2.4rem",
           },
-        }}
+          "& .MuiTab-root": {
+            zIndex: 2,
+            p: "1.6rem 3.7rem"
+          }
+        })}
       >
         {data.categories.map((category) => (
           <Tab

@@ -11,8 +11,8 @@ export const StreakPanel: FC<Props> = ({ data }) => {
   return (
     <Paper
       sx={(theme) => ({
-        height: "4.2rem",
-        borderRadius: "2.1rem",
+        height: "5.8rem",
+        borderRadius: "3rem",
         display: "flex",
         gap: "0.4rem",
         alignItems: "center",

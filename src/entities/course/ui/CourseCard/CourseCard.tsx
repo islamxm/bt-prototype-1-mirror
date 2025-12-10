@@ -1,50 +1,43 @@
-import { Box, Button, Paper, Stack, Typography } from "@mui/material";
-import Image from "next/image";
-import img from "../../../../../public/course-img.png";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import { MenuIconRound, PlayIconRound } from "@/shared/ui/icons";
 import { FC } from "react";
 import { Course } from "../../model";
+import { InfoChip } from "../InfoChip/InfoChip";
+import { motion } from "motion/react";
+import { getLanguageName } from "@/shared/lib";
+import { Language } from "@/shared/model";
 
 export const CourseCard: FC<
-  Pick<Course, "name" | "id" | "icon"> & Partial<Pick<Course, 'description'>>
-> = ({ name, description }) => {
+  Pick<Course, "name" | "id" | "icon" | "totalLessons" | "languages"> &
+    Partial<Pick<Course, "description">>
+> = ({ name, description, totalLessons, languages }) => {
   return (
-    <Paper
-      sx={(theme) => ({
-        height: "34.5rem",
-        overflow: "hidden",
-        backgroundColor: theme.palette.background.default,
-        display: "flex",
-        flexDirection: "column",
-        color: theme.palette.primary.main,
-        flex: 1,
-        "&:hover": {
-          backgroundColor: theme.palette.primary.main,
-          color: theme.palette.common.white,
-        },
-      })}
-      elevation={0}
-      component={Link}
-      href={"#"}
-    >
-      <Box sx={{ height: "16.4rem" }}>
-        <Image
-          style={{ objectFit: "cover", height: "100%", width: "100%" }}
-          src={img}
-          alt=""
-        />
-      </Box>
-
-      <Stack
-        sx={{
+    <Box component={Link} href={"#"} sx={{ flex: 1 }}>
+      <Paper
+        elevation={0}
+        component={motion.div}
+        sx={(theme) => ({
+          height: "21.5rem",
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          color: theme.palette.primary.main,
+          position: "relative",
           p: "1.6rem",
-          height: "100%",
           justifyContent: "space-between",
+          "&:hover": {
+            boxShadow: theme.shadows[1],
+          },
+        })}
+        whileHover={{
+          scale: 1.2,
+          zIndex: 2,
         }}
       >
-        <Stack gap={".8rem"}>
-          <Typography variant="h4">{name}</Typography>
+        <Stack gap={"1rem"}>
+          <Typography variant="h4" sx={{ fontWeight: 600, fontSize: "2.4rem" }}>
+            {name}
+          </Typography>
           <Typography
             sx={{
               overflow: "hidden",
@@ -57,15 +50,30 @@ export const CourseCard: FC<
             {description}
           </Typography>
         </Stack>
-        <Stack direction={"row"} justifyContent={"flex-end"}>
-          <Button color="inherit" startIcon={<PlayIconRound />}>
-            24
-          </Button>
-          <Button color="inherit" startIcon={<MenuIconRound />}>
-            24
-          </Button>
+        <Stack flexWrap={"wrap"} gap={".4rem"} direction={"row"}>
+
+          {/* На данный момент информация о категории не приходит с бэка */}
+          {/* <InfoChip value={"Programming"} type={"category"} /> */}
+
+          {totalLessons > 0 && (
+            <InfoChip
+              value={`${totalLessons} ${
+                totalLessons > 1 ? "lessons" : "lesson"
+              }`}
+              type={"lessons_count"}
+            />
+          )}
+
+          {languages.length > 0 &&
+            languages.map((language) => (
+              <InfoChip
+                value={getLanguageName(language as Language)}
+                type={"language"}
+                key={language}
+              />
+            ))}
         </Stack>
-      </Stack>
-    </Paper>
+      </Paper>
+    </Box>
   );
 };

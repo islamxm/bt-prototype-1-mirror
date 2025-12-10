@@ -11,11 +11,12 @@ type Props = {
 };
 
 export const CoursesSection: FC<Props> = ({ data }) => {
+  console.log(data);
   return (
     <Box
       sx={(theme) => ({
-        backgroundColor: theme.palette.common.white,
         py: "3.5rem",
+        backgroundColor: theme.palette.background.default,
       })}
     >
       <Container>
@@ -30,7 +31,7 @@ export const CoursesSection: FC<Props> = ({ data }) => {
         />
         <Stack direction={"row"} gap={"20px"}>
           {data.map((course) => (
-            <CourseCard key={course.id} {...course}/>
+            <CourseCard key={course.id} {...course} />
           ))}
         </Stack>
       </Container>

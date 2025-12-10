@@ -22,21 +22,24 @@ export function getUserDeviceInfo(): Omit<
   };
 }
 
-export const getStreakStatus = (data: {
-  day: number;
-  streak: UserStreak;
-}) => {
-  const {day, streak} = data
+export const getStreakStatus = (data: { day: number; streak: UserStreak }) => {
+  const { day, streak } = data;
   let status: StreakStatus = "disabled";
 
-  if(day <= streak.currentStreak) {
-    status = 'active'
+  if (day <= streak.currentStreak) {
+    status = "active";
   }
-  if(day === streak.currentStreak + 1 && !streak.todayActive) {
-    status = 'current'
+  if (day === streak.currentStreak + 1 && !streak.todayActive) {
+    status = "current";
   }
-  if(day > streak.currentStreak + 1) {
-    status = 'disabled'
+  if (day > streak.currentStreak + 1 && day < 8) {
+    status = "disabled";
+  }
+  if (day === 8) {
+    status = "final";
+  }
+  if (day === 8 && day === streak.currentStreak + 1) {
+    status = "complete";
   }
 
   return status;

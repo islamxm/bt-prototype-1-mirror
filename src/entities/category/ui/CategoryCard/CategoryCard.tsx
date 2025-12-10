@@ -5,8 +5,6 @@ import Link from "next/link";
 import { FC } from "react";
 import { Category } from "../../model";
 
-
-
 export const CategoryCard:FC<Category> = ({
   name,
   iconPath,
@@ -18,7 +16,6 @@ export const CategoryCard:FC<Category> = ({
         borderRadius: "1.4rem",
         p: "3.4rem",
         color: theme.palette.primary.main,
-        backgroundColor: theme.palette.background.default,
         flexGrow: 1,
         "&:hover": {
           backgroundColor: theme.palette.primary.main,

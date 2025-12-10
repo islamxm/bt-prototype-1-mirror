@@ -11,3 +11,5 @@ export type GetCoursesByCategoryIdResponse = Response<
   z.infer<typeof GetCoursesByCategoryIdSuccessResponseSchema>,
   DefaultResponseErrorData
 >
+
+export type CourseCardChipInfo = "category" | "language" | "lessons_count";

@@ -5,7 +5,6 @@ import classes from "./classes.module.scss";
 import { StreakInfo } from "@/features/user/streak-info";
 import { useSelector } from "@/shared/lib";
 
-
 export const AppHeader = () => {
   const {isAuth} = useSelector(s => s.user)
 
@@ -17,7 +16,6 @@ export const AppHeader = () => {
         top: 0,
         left: 0,
         width: "100%",
-        alignItems: "center",
         zIndex: 10,
       }}
       className={classes.wrapper}

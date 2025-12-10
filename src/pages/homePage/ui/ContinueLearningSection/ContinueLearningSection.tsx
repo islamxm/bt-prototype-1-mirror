@@ -9,15 +9,19 @@ import { userApi } from "@/entities/user";
 export const ContinueLearningSection = () => {
   const { data, isError } = userApi.useGetHomeUserDataQuery(undefined);
 
-  if (isError || !data?.continueLearning || data.continueLearning.length === 0) {
+  if (
+    isError ||
+    !data?.continueLearning ||
+    data.continueLearning.length === 0
+  ) {
     return null;
   }
 
   return (
     <Box
-      sx={(theme) => ({
-        backgroundColor: theme.palette.common.white,
+      sx={theme => ({
         py: "3.5rem",
+        backgroundColor: theme.palette.background.default
       })}
     >
       <Container>
@@ -29,7 +33,7 @@ export const ContinueLearningSection = () => {
             </Button>
           }
         />
-        <Stack direction={"row"} gap={"20px"}>
+        {/* <Stack direction={"row"} gap={"20px"}>
           {data.continueLearning.map((course) => (
             <CourseCard
               key={course.courseId}
@@ -38,7 +42,7 @@ export const ContinueLearningSection = () => {
               icon={course.courseIcon}
             />
           ))}
-        </Stack>
+        </Stack> */}
       </Container>
     </Box>
   );

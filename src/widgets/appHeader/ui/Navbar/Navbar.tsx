@@ -11,7 +11,7 @@ const routes = Object.entries(routesMap)
   .filter((route) => route.path !== getHomePage());
 
 export const Navbar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <Paper
@@ -26,17 +26,20 @@ export const Navbar = () => {
       })}
       component={motion.div}
       layout
-      initial={{scale: 0, opacity: 0}}
-      animate={{scale: 1, opacity: 1}}
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
     >
-      <Stack direction={"row"} alignItems={"center"} gap={"3rem"} component={motion.div} layout>
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        gap={"3rem"}
+        component={motion.div}
+        layout
+      >
         <Logo sx={{ ml: "2.4rem" }} />
         {routes.map((route) => (
           <motion.div key={route.id} layout>
-            <NavLink
-              {...route}
-              isActive={pathname?.startsWith(route.path)}
-              />
+            <NavLink {...route} isActive={pathname?.startsWith(route.path)} />
           </motion.div>
         ))}
         <UserAvatar />

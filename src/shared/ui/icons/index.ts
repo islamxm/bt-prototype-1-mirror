@@ -6,3 +6,7 @@ export { PlayIcon } from "./PlayIcon";
 export { PlayIconRound } from "./PlayIconRound";
 export { MenuIcon } from "./MenuIcon";
 export { MenuIconRound } from "./MenuIconRound";
+export { SearchIcon } from "./SearchIcon";
+export { CrownIcon } from "./CrownIcon";
+export { GlobeIcon } from "./GlobeIcon";
+export { BookIcon } from "./BookIcon";

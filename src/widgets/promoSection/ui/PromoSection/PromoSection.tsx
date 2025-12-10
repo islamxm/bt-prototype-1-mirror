@@ -7,8 +7,6 @@ import {
   Button,
   IconButton,
   Stack,
-  SxProps,
-  Theme,
   Typography,
 } from "@mui/material";
 import { SwiperSlide, Swiper } from "swiper/react";
@@ -26,15 +24,12 @@ type Props = {
     title?: string;
     subtitle?: string;
   };
-  bgcolor?: BoxProps["bgcolor"]
+  bgcolor?: BoxProps["bgcolor"];
 };
 
 export const PromoSection: FC<Props> = ({ bgcolor, head }) => {
   return (
-    <Box
-      className={classes.wrapper}
-      bgcolor={bgcolor ? bgcolor : (theme) => theme.palette.common.white}
-    >
+    <Box className={classes.wrapper} bgcolor={bgcolor}>
       <Container>
         {head && <SectionHead title={head.title} subtitle={head.subtitle} />}
         <Swiper

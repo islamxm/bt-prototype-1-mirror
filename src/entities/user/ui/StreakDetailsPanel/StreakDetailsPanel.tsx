@@ -20,7 +20,6 @@ export const StreakDetailsPanel: FC<Props> = ({data}) => {
           </Typography>
         </Stack>
       </Stack>
-
       <StreakDays streak={data}/>
     </Stack>
   );
