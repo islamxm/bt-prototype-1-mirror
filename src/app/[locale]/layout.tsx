@@ -8,7 +8,7 @@ export default function LocaleLayout({
   params: {locale}
 }: Readonly<{
   children: React.ReactNode,
-  params: {locale: string, [key: string]: unknown}
+  params: {locale: string}
 }>) {
 
   if(!locales.includes(locale)) {
