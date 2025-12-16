@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import {NextIntlClientProvider} from "next-intl"
 import { locales } from "@/shared/i18n";
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params: {locale}
 }: Readonly<{
