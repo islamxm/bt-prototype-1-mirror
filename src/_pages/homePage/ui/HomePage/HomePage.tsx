@@ -20,7 +20,7 @@ export const HomePage: FC<Props> = ({ data }) => {
     <PageEnterAnimationLayout>
       <Stack>
         <HeroSection />
-        <ContinueLearningSection />
+        {/* <ContinueLearningSection /> */}
         <CategoriesSection data={data.categories} />
         <PromoSection
           bgcolor={theme => theme.palette.background.default}

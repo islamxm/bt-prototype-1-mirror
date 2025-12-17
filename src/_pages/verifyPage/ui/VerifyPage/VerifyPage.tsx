@@ -26,7 +26,7 @@ export const VerifyPage = () => {
           <Button
             variant={"contained"}
             color={"primary"}
-            compoent={Link}
+            component={Link}
             href="/auth"
             >
             Back to register
